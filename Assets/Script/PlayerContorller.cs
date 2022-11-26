@@ -35,7 +35,7 @@ public class PlayerContorller : MonoBehaviour
         objwepon = pivoit.GetChild(0).gameObject;
         _colliderwepon = objwepon.GetComponent<BoxCollider>();
         _colliderwepon.enabled = false;
-
+       
   }
     void Update()
     {
@@ -108,11 +108,8 @@ public class PlayerContorller : MonoBehaviour
         }
         if (col.CompareTag("Enemy"))
         {
-            Vector3 direction = knockback.position - transform.position;
-            direction.y = 1;
-            rb.AddForce(direction.normalized * knockbackforce,ForceMode.Impulse);
+            rb.AddForce((Vector3.one) * knockbackforce,ForceMode.Impulse);
             Debug.Log("knock");
-            
         }
     }
 }
